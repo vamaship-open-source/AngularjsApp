@@ -1,0 +1,67 @@
+<div  ng-controller="NavbarTopController" ng-if="isExam == false">
+	<div class="sidebar-toggle-box">
+	      <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+	  </div>
+	<!--logo start-->
+	<a href="#/" class="logo"><b>LicExamGuru</b></a>
+	<!--logo end-->
+	<div class="nav notify-row" id="top_menu">
+	   <ul class="nav pull-right top-menu" ng-if="showpaterOption">
+	        <li><a class="logout" href="" style="margin-top:0px;" ng-click="withoutAns()">Without Ans</a></li>
+	        <li><a class="logout" href="" style="margin-top:0px;" ng-click="withAns()">With Ans</a></li>
+	        <li><a class="logout" href="" style="margin-top:0px;" ng-click="onlyAns()">Only Ans</a></li>
+	        <li><a class="logout" href="#/exam/{{model}}/{{module_id}}" style="margin-top:0px;">Start as test</a></li>
+	   </ul>
+	    <ul class="nav pull-right top-menu" ng-if="!showpaterOption">
+	   		<li class="dropdown">
+	            <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+	                <i class="fa fa-tasks"></i>
+	                <span class="badge bg-theme">{{language == 'h' ? 'Hindi' : 'English'}}</span>
+	            </a>
+	            <ul class="dropdown-menu extended tasks-bar">
+	                <div class="notify-arrow notify-arrow-green"></div>
+	                <li>
+	                    <p class="green">You have 4 pending tasks</p>
+	                </li>
+	                <li>
+                        <a href="" ng-click="languageChange('h')">
+                            Hindi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="languageChange('e')">
+                            English
+                        </a>
+                    </li>
+	                   
+	            </ul>
+	        </li>
+	        
+	    </ul>
+	</div>
+	<div class="top-menu">
+	    <ul class="nav pull-right top-menu">
+	        <li><a class="logout" href="{{logoutUrl}}/index.html#/logout">Logout</a></li>
+	    </ul>
+	</div>
+</div>
+<div  ng-controller="ExamHeaderController" ng-if="isExam == true">
+<section id="main-content">
+<section class="wrapper" style="margin:10px;padding:0px;margin-botton:0px;">
+	<div class="nav notify-row" id="top_menu" style="margin:0px;padding:0px">
+	   <ul class="nav pull-right top-menu">
+	   		<!-- <li><canvas id="serverstatus00" height="40" width="40" style="width: 40px; height: 40px;"></canvas></li> -->
+	        <li><a class="logout" style="margin-top:0px;" id="timertime">{{time}}</a></li>
+	        <li><a class="logout" style="margin-top:0px;"><span class="examlabel">Total : {{total}}</span></a></li>
+	        <li><a class="logout" style="margin-top:0px;"><span class="examlabel">Attempt : {{attempt}}</span></a></li>
+	        <li><a class="logout" style="margin-top:0px;"><span class="examlabel">Remaining : {{remaning}}</span></a></li>
+	        <li><a class="logout" style="margin-top:0px;" ng-click="submitExam()"><span class="examlabel">Submit Exam</span></a></li>
+	        <li><canvas id="serverstatus01" height="40" width="40" style="width: 40px; height: 40px;"></canvas></li>
+	    </ul>
+	</div>
+</section>
+</section>
+</div>
+<style type="text/css">
+	.examlabel{font-size:16px;}
+</style>

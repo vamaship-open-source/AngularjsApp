@@ -1,0 +1,79 @@
+<div class="row mt modelpaper" style="margin-top: 0px; " ng-controller="DetailsController">
+  <div class="form-login text-center" ng-if="loading">
+    <img src="img/loading.gif">
+  </div> 
+	<div class="col-lg-12" ng-repeat="paper in modelPaper" ng-if="language == paper.type">
+		<div class="form-panel" style="{{paper.clicked !=0 ?( paper.ansokay ? 'background: rgb(168, 255, 186);' : 'background: rgb(255, 178, 168);' ) : ''}}">
+      	  <h4 class="mb" style="margin-bottom:10px;"><i class="fa fa-angle-right"></i> {{paper.question}}</h4>
+          <div class="form-inline" role="form">
+             
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                    <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{(paper.checked == 1 || (paper.option1.trim() == paper.correct_opt.trim())) ? 'check correct' : (paper.checked == 0 ? 'times wrong' : '' )}}"
+                        ng-if="paper.clicked == '1' || (paper.option1.trim() == paper.correct_opt.trim())"></i>
+                    </div>  
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-1" value="option1" disabled 
+                        ng-checked="paper.option1.trim() == paper.correct_opt.trim()"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option1.trim(), paper.correct_opt.trim(), '1')">
+                      <span>{{paper.option1}}</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                   <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{(paper.checked == 1 || (paper.option2.trim() == paper.correct_opt.trim())) ? 'check correct' : (paper.checked == 0 ? 'times wrong' : '' )}}"
+                        ng-if="paper.clicked == '2' || (paper.option2.trim() == paper.correct_opt.trim())"></i>
+                    </div>  
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-2" value="option2" disabled
+                        ng-checked="paper.option2.trim() == paper.correct_opt.trim()"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option2.trim(), paper.correct_opt.trim(), '2')">
+                      <span>{{paper.option2}}</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                    <div style="width:18px;float:left;height:18px"> 
+                       <i class="fa fa-{{(paper.checked == 1 || (paper.option3.trim() == paper.correct_opt.trim())) ? 'check correct' : (paper.checked != 0 ? 'times wrong' : '' )}}"
+                        ng-if="paper.clicked == '3' || (paper.option3.trim() == paper.correct_opt.trim())"></i>
+                    </div>  
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-3" value="option3" disabled
+                        ng-checked="paper.option3.trim() == paper.correct_opt.trim()"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option3.trim(), paper.correct_opt.trim(), '3')">
+                      <span>{{paper.option3}}</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                    <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{(paper.checked == 1 || (paper.option4.trim() == paper.correct_opt.trim())) ? 'check correct' : (paper.checked == 0 ? 'times wrong' : '' )}}"
+                        ng-if="paper.clicked == '4' || (paper.option4.trim() == paper.correct_opt.trim())"></i>
+                    </div>  
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-4" value="option4" disabled
+                        ng-checked="paper.option4.trim() == paper.correct_opt.trim()"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option4.trim(), paper.correct_opt.trim(), '4')">
+                       <span>{{paper.option4}}</span>
+                    </label>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+		</div><!-- /form-panel -->
+	</div><!-- /col-lg-12 -->
+</div>
+

@@ -1,0 +1,51 @@
+<div id="sidebar"  class="nav-collapse " ng-controller="NavbarLeftController">
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu" id="nav-accordion">
+    
+    	  <p class="centered"><a href="#/">
+          <img src="{{rofile_photo != '' ? profile_photo :'img/ui-sam.png'}}" class="img-circle" width="60" height="60"></a></p>
+    	  <h5 class="centered">{{userName}}</h5>
+    	  	
+        <li class="mt">
+            <a class="active" href="#/">
+                <i class="fa fa-dashboard"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="sub-menu">
+            <a href="javascript:;" >
+                <i class="fa fa-desktop"></i>
+                <span>{{language == 'h' ? 'Hindi' : 'English'}} Model Papers</span>
+            </a>
+            <ul class="sub">
+                <li ng-repeat="model in hindiModel | orderBy:'id'"><a  href="#/{{language == 'h' ? 'hindi' : 'english'}}/{{model.module_id}}">{{model.name}}</a></li>
+                
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="javascript:;" >
+                <i class="fa fa-book"></i>
+                <span>{{language == 'h' ? 'Hindi' : 'English'}} Metarials</span>
+            </a>
+            <ul class="sub">
+                <li ng-repeat="pdf in hindiPdf | orderBy:'id'"><a  href="#/metarial/{{pdf.name}}">{{pdf.name}}</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu">
+            <a href="#/report" >
+                <i class="fa fa-th"></i>
+                <span>Result</span>
+            </a>
+           
+        </li>
+        <li class="sub-menu">
+            <a href="#setting" >
+                <i class=" fa fa-bar-chart-o"></i>
+                <span>setting</span>
+            </a>
+        </li>
+
+    </ul>
+    <!-- sidebar menu end-->
+</div>

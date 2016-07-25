@@ -1,0 +1,21 @@
+<div class="container" ng-controller="LicenceController">
+
+  <div class="form-login" action="index.html">
+    <h2 class="form-login-heading">User Licence</h2>
+    <div class="login-wrap">
+      <form name="signinForm" id="signinForm" ng-submit="licence()">
+       <div class="alert alert-danger" ng-if="!isSuccess && loginFailMsg">{{loginFailMsg}}</div>
+       <div class="alert alert-success" ng-if="isSuccess && loginFailMsg">{{loginFailMsg}}</div>
+        <input type="text" class="form-control" ng-model="locenceText" placeholder="Licence code" autofocus disabled>
+        <br>
+        <input type="text" class="form-control" ng-model="licenceCode" placeholder="Licence code" autofocus required>
+        <br>
+        <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> LICENCE NOW </button>
+        <br>
+        <a href="#/signin" class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> OTHER USER LOGIN</a>
+      </form>  
+    </div>
+
+  </div>	  	
+
+</div>

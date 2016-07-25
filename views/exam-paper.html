@@ -1,0 +1,138 @@
+<div class="row mt modelpaper" style="margin-top: 0px; " ng-controller="ModelpaperController">
+  <div class="form-login text-center"ng-if="loading">
+    <img src="img/loading.gif">
+  </div> 
+  <input type="hidden" id="modelPaper"> 
+	<div class="col-lg-12" ng-repeat="paper in modelPaper" ng-if="model == paper.type" ng-init="counter = count">
+		<div class="form-panel" style="{{paper.clicked !=0 ? 'background: rgb(233, 243, 252);' : ''}}">
+      	  <h4 class="mb" style="margin-bottom:10px;"><i class="fa fa-angle-right"></i> {{paper.question}}</h4>
+          <div class="form-inline" role="form">
+              <div class="row" ng-if="!showOption">
+                <div class="col-lg-12">
+                  <label style="color: green;">
+                        <i class="fa fa-check"></i><span> {{paper.correct_opt}}</span>
+                  </label>
+                </div>
+              </div>
+              <div class="row" ng-if="showOption">
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                    <!-- <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{paper.checked == 1 ? 'check' : (paper.checked == 0 ? 'times' : '' )}}"
+                        style="color:{{paper.checked == 1 ? 'green' : 'red'}};width:10px;" ng-if="paper.clicked == '1'"></i>
+                    </div>   -->
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-1" value="option1" 
+                        ng-checked="paper.clicked == 1"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option1.trim(), paper.correct_opt.trim(), '1')">
+                      <span>{{paper.option1}}</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                   <!-- <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{paper.checked == 1 ? 'check' : (paper.checked == 0 ? 'times' : '' )}}"
+                        style="color:{{paper.checked == 1 ? 'green' : 'red'}};width:10px;" ng-if="paper.clicked == '2'"></i>
+                    </div>   -->
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-2" value="option2" 
+                        ng-checked="paper.clicked == 2"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option2.trim(), paper.correct_opt.trim(), '2')">
+                      <span>{{paper.option2}}</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row" ng-if="showOption">
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                   <!--  <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{paper.checked == 1 ? 'check' : (paper.checked == 0 ? 'times' : '' )}}"
+                        style="color:{{paper.checked == 1 ? 'green' : 'red'}};width:10px;" ng-if="paper.clicked == '3'"></i>
+                    </div>   -->
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-3" value="option3" 
+                        ng-checked="paper.clicked == 3"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option3.trim(), paper.correct_opt.trim(), '3')">
+                      <span>{{paper.option3}}</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="radio">
+                    <label>
+                   <!--  <div style="width:18px;float:left;height:18px"> 
+                      <i class="fa fa-{{paper.checked == 1 ? 'check' : (paper.checked == 0 ? 'times' : '' )}}"
+                        style="color:{{paper.checked == 1 ? 'green' : 'red'}};width:10px;" ng-if="paper.clicked == '4'"></i>
+                    </div>   -->
+                      <input type="radio" class="form-control" name="optionsRadios[{{modelPaper.indexOf(paper)}}]" 
+                        id="optionsRadios{{modelPaper.indexOf(paper)}}-4" value="option4" 
+                        ng-checked="paper.clicked == 4"
+                        ng-click="onCheck(modelPaper.indexOf(paper), paper.option4.trim(), paper.correct_opt.trim(), '4')">
+                       <span>{{paper.option4}}</span>
+                    </label>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+		</div><!-- /form-panel -->
+	</div><!-- /col-lg-12 -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myModalLabel">Submit Exam</h4>
+        </div>
+        <div class="modal-body">
+          <h5 class="title">{{submitTitle}}</h5>
+            <h5>Exam Summary</h5>
+            <table  class="table table-bordered table-striped table-condensed">
+              <thead>
+                <tr>
+                  <th>Option Name</th>
+                  <th>Option Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total Question</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>Attempt Question</td>
+                  <td>{{attempt}}</td>
+                </tr>
+                <tr>
+                  <td>Remaning Question</td>
+                  <td>{{remaning}}</td>
+                </tr>
+                <tr>
+                  <td>Total Time</td>
+                  <td>60 Minutes</td>
+                </tr>
+                <tr>
+                  <td>Remaning Time</td>
+                  <td>{{remaningtime}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              The result of show in your dashboard soon after checking of question, this will take some time
+            </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="finalSubmit()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

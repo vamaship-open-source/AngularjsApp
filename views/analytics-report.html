@@ -1,0 +1,35 @@
+<div class="row mt modelpaper" style="margin-top: 0px; " ng-controller="AnalyticsController">
+	<div class="form-login text-center"ng-if="loading">
+		<img src="img/loading.gif">
+	</div> 
+	<div class="col-lg-12">
+		<div class="form-panel">
+		<table  class="table table-bordered table-striped table-condensed">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>ModelID</th>
+					<th>Model Name</th>
+					<th>Open</th>
+					<th>Clicks</th>
+					<th>Correct</th>
+					<th>wrong</th>
+					<th>Persantage</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="row in report">
+					<td>{{report.indexOf(row)+1}}</td>
+					<td>{{ row.modelId }}</td>
+					<td>{{ language == 'h' ? "Hindi" : "English" }} Model {{ row.modelId }}</td>
+					<td>{{ row.open }}</td>
+					<td>{{ row.clicks }}</td>
+					<td>{{ row.correct }}</td>
+					<td>{{ row.wrong }}</td>
+					<td>{{ row.per }} %</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>   
+</div>

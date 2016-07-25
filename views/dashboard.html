@@ -1,0 +1,81 @@
+<div class="row mtbox" style="margin-top:0px; margin-bottom:0px;" ng-controller="DashboardController">
+	<h3 class="col-sm-11 col-md-offset-1">Model Papers Activity</h3>
+	<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+		<div class="box1" title="Click for details">
+		   <a href="#/analytisreport/watch" style="text-decoration:none;color: #989898;">	
+				<span class="li_news"></span>
+				<h3>{{analytics.watch.open}}</h3>
+		   </a>
+		</div>
+			<p>You opend {{analytics.watch.open}} time {{language == 'h' ? 'Hindi' : 'English'}} Model Paper</p>
+	</div>
+	<div class="col-md-2 col-sm-2  box0">
+		<div class="box1">
+			<span class="li_cloud"></span>
+			<h3>{{analytics.watch.clicks}}</h3>
+		</div>
+			<p>You clicked {{analytics.watch.clicks}} questions while reading model</p>
+	</div>
+	<div class="col-md-2 col-sm-2 box0">
+		<div class="box1">
+			<span class="li_stack"></span>
+			<h3>{{analytics.watch.correct}}</h3>
+		</div>
+			<p>Your clickes are correct {{analytics.watch.correct}} time while reading model</p>
+	</div>
+	<div class="col-md-2 col-sm-2 box0">
+		<div class="box1">
+			<span class="li_data"></span>
+			<h3>{{analytics.watch.wrong}}</h3>
+		</div>
+			<p>Your clickes are wrong {{analytics.watch.wrong}} time while reading model</p>
+	</div>
+	<div class="col-md-2 col-sm-2  box0">
+		<div class="box1">
+			<span class="li_heart"></span>
+			<h3>{{analytics.watch.per}} %</h3>
+		</div>
+			<p>Your matching skill is {{analytics.watch.per}} %  {{analytics.watch.msg}}</p>
+	</div>
+</div><!-- /row mt -->	
+<div class="row mtbox" style="margin-top:0px; margin-bottom:0px;" ng-controller="DashboardController">
+	<h3 class="col-sm-11 col-md-offset-1">Exam Activity</h3>
+	<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+		<div class="box1" title="Click for details">
+			<a href="#/analytisreport/exam" style="text-decoration:none;color: #989898;">	
+				<span class="li_news"></span>
+				<h3>{{analytics.exam.open}}</h3>
+			</a>
+		</div>
+			<p>You opend {{analytics.exam.open}} time {{language == 'h' ? 'Hindi' : 'English'}} exam Paper</p>
+	</div>
+	<div class="col-md-2 col-sm-2 box0">
+		<div class="box1">
+			<span class="li_cloud"></span>
+			<h3>{{analytics.exam.clicks}}</h3>
+		</div>
+			<p>You have attempt {{analytics.exam.clicks}} question in all exam.</p>
+	</div>
+	<div class="col-md-2 col-sm-2 box0">
+		<div class="box1">
+			<span class="li_stack"></span>
+			<h3>{{analytics.exam.correct}}</h3>
+		</div>
+			<p>{{analytics.exam.correct}} question is correct in all exam</p>
+	</div>
+	<div class="col-md-2 col-sm-2 box0">
+		<div class="box1">
+			<span class="li_data"></span>
+			<h3>{{analytics.exam.wrong}}</h3>
+		</div>
+			<p>{{analytics.exam.wrong}} question is correct in all exam</p>
+	</div>
+	<div class="col-md-2 col-sm-2 box0">
+		<div class="box1">
+			<span class="li_heart"></span>
+			<h3>{{analytics.exam.per}} %</h3>
+		</div> 
+			<p>You have get {{analytics.exam.per}} % in all exam</p>
+	</div>
+</div><!-- /row mt -->	
+

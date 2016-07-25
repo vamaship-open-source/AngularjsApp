@@ -1,0 +1,38 @@
+<div class="container" ng-controller="SignupController">
+
+  <div class="form-login" action="index.html" style="margin: 10px auto 0">
+	<h2 class="form-login-heading">sign up now</h2>
+	<div class="login-wrap">
+		<form name="signupForm" ng-submit="sugnup()">
+		   <div class="alert alert-danger" ng-if="!isSuccess && loginFailMsg">{{loginFailMsg}} Or
+				<a href="#/signin" class="btn btn-theme btn-block">Login</a>
+		   </div>
+			<input type="text" class="form-control" ng-model="name" placeholder="Name" autofocus required>
+			<br>
+			<input type="email" class="form-control" ng-model="email" placeholder="Email" autofocus>
+			<br>
+			<input type="text" class="form-control" ng-model="mobile" placeholder="Mobile" autofocus required>
+			<br>
+			<input type="text" class="form-control" ng-model="state" placeholder="State" autofocus required>
+			<br>
+			<input type="text" class="form-control" ng-model="city" placeholder="City" autofocus required>
+			<br>
+			<input type="text" class="form-control" ng-model="division" placeholder="division" autofocus required>
+			<br>
+			<input type="password" class="form-control" ng-model="password" placeholder="Password" required>
+			<br>
+			<input type="password" class="form-control" ng-model="passwordtext" placeholder="Confirm Password" required>
+			<br>
+			<button class="btn btn-theme btn-block"><i class="fa fa-lock"></i> SIGN Up</button>
+			<div class="registration">
+			   All ready have an acount<br/>
+				<a class="" href="#/signin">
+					login
+				</a>
+			</div>
+		</form>
+	</div>
+
+  </div>        
+
+</div>
